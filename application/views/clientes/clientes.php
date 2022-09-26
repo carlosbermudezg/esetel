@@ -15,7 +15,7 @@
             <table id="tblclientes" class="table table-bordered table-striped table-vcenter">
             <thead>
                 <tr>
-                <th class="text-center" style="width: 80px;">ID</th>
+                <th class="text-center" style="width: 80px;">Código</th>
                 <th>Nombres</th>
                 <th class="d-none d-sm-table-cell" style="width: 15%;">Fecha de ingreso</th>
                 <th style="width: 15%;">Dirección</th>

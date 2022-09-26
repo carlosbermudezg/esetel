@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Clientes extends CI_Controller {
+class Clientes extends CI_Controller { 
 
 	public function index()
 	{
@@ -23,7 +23,7 @@ class Clientes extends CI_Controller {
         $postData = $this->input->post();
         //parametros de busqueda
         $search = array(
-            'id',
+            'codigo',
             'nombres',
             'apellidos',
             'dni',
@@ -43,7 +43,7 @@ class Clientes extends CI_Controller {
                 $status = 'Archivado';
             }
             $data[] = array(
-               "id"=>$r->id,
+               "id"=>$r->codigo,
                "nombres"=>'<a href="'.base_url('clientes/perfil/'.$r->id).'">'.$r->nombres.' '.$r->apellidos.'</a>',
                "fecha"=>$r->fecha_registro,
                "direccion"=>$r->direccion,
@@ -73,6 +73,8 @@ class Clientes extends CI_Controller {
         if((!$this->session->userdata('conectado'))){
 			redirect('login');
 		}
+        $id = $this->uri->segment(3);
+        $this->data['result'] = $this->General_model->getById($id,'*','clientes');
         $this->data['ClientesActive'] = 'active';
 		$this->data['view'] = 'clientes/perfilCliente';
 		$this->load->view('main',$this->data);

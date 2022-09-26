@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class General_model extends CI_Model {
+class General_model extends CI_Model { 
     public function __construct(){
     	parent::__construct();
     	date_default_timezone_set('America/Guayaquil');
@@ -235,9 +235,9 @@ class General_model extends CI_Model {
 	    $this->session->set_userdata('conectado',TRUE);
 	    $data = array(
 	      'id' => $cuenta->id,
-          'nombre' => $cuenta->Nombre_Usuario,
+          'nombre' => $cuenta->nombre,
           'user' => $cuenta->user,
-          'id_permiso' => $cuenta->permiso
+          'id_permiso' => $cuenta->id_permisos
         );
         $this->session->set_userdata($data);
 	    return true;
